@@ -181,7 +181,7 @@ while True:
    # Game Round
    while True:
       print("The dealer is shuffling a deck")
-      # timeSleep(3, '(shuffling..)')
+      timeSleep(3, '(shuffling..)')
 
       print("The deck has been shuffled!")
       deck = Deck()
@@ -189,7 +189,7 @@ while True:
 
       take_bet(chip)
       
-      # timeSleep(2, '(distributing cards..)')
+      timeSleep(2, '(distributing cards..)')
 
       print("You and the dealer have received two cards, respectively.\n")
       playerHand = Hand()
@@ -210,25 +210,25 @@ while True:
             player_busts(chip)
             isPlayerBust = True
             break
-         # Continue to hit
+         # Continue to hit or stand
          else:
             # If the player's hand equals to 21.
             if playerHand.value == 21:
                break
+
             hit_or_stand(deck,playerHand)
             continue
          
       # Dealer's turn
       while not isPlayerBust:
+         show_all(playerHand,dealerHand)
          
          # If dealer busts
          if dealerHand.value > 21:
-            show_all(playerHand,dealerHand)
             dealer_busts(chip)
             break
-         # If dealer sum is between 21 and 17
+         # If dealer sum is between 21 and 17 => dealer stands
          elif 17 <= dealerHand.value <= 21:
-            show_all(playerHand,dealerHand)
             print("Dealer Stands")
             if dealerHand.value > playerHand.value:
                dealer_wins(chip)
