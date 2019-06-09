@@ -206,7 +206,6 @@ while True:
 
          # If the player busts
          if playerHand.value > 21:
-            show_some(playerHand,dealerHand)
             player_busts(chip)
             isPlayerBust = True
             break
