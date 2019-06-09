@@ -160,7 +160,7 @@ def timeSleep(sec, message = ".."):
    time.sleep(1)
 
 def replay(chips):
-   return input(f"Now you have {chips.total}.\nDo you want to play again?? Enter Y or N: ").lower().startswith('y')
+   return input(f"Now you have {chips.total} chips.\nDo you want to play again?? Enter Y or N: ").lower().startswith('y')
 
 def quit():
    return input("If you want to (R)estart or (Q)uit the game??: ").lower().startswith('r')
@@ -214,7 +214,6 @@ while True:
             # If the player's hand equals to 21.
             if playerHand.value == 21:
                break
-
             hit_or_stand(deck,playerHand)
             continue
          
@@ -246,6 +245,3 @@ while True:
 
    if not quit():
       break
-
-   
-
